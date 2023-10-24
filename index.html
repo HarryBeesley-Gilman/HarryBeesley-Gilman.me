@@ -75,7 +75,7 @@
             position: absolute;
             top: 55%;
             left: 80%;
-            transform: rotate(-15deg); /* this will tilt it 15 degrees */
+            transform: rotate(-15deg); 
         }
 
 
@@ -85,7 +85,7 @@
             position: absolute;
             top: 85%;
             left: 25%;
-            transform: rotate(-60deg); /* this will tilt it 15 degrees */
+            transform: rotate(-60deg); 
         }
 
 
@@ -96,9 +96,18 @@
             text-align: left;
             font-size: 20px;
         }
+        #Record, #Resume, #Compass {
+            transition: transform 0.3s, box-shadow 0.3s; 
+            }
+
+        #Record:hover, #Resume:hover, #Compass:hover {
+            transform: scale(1.1); 
+            box-circle: 0px 5px 15px rgba(0,0,0,0.3); 
+            }
+
 
         .pageTitle {
-                position: relative;
+            position: relative;
             left: 25%;
             top: 0%;
             font-size: 45px;
@@ -127,7 +136,6 @@
     <img id="Camera" src="pictures/camera.png">
     <img id="Oar" src="pictures/Oar.png">
     <img id="Virginia" src="pictures/Virginia.png">
-    <a href="resume.html">My Resume</a>
     <h1 class="pageTitle">Harry Beesley-Gilman: Student at Dartmouth College</h1>
     </div>
     <h2 class="Explanation">Click the 4 icons above to learn a bit about me.</h2>
