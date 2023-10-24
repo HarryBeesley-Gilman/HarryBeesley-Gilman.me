@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap">
+    <style>
+        /* Styles for body and layout */
+        body {
+            font-family: 'Gochi Hand', cursive;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            height: 100vh;
+            background-color: #f2ebf7;
+        }
+
+        /* Styles for cartoon */
+        #Cartoon {
+            width: 400px;
+            height: 600px;
+            position: absolute;
+            top: 10%;
+            left: 30%;
+        }
+
+        #Cello {
+            width: 140px;
+            height: 265px;
+            position: absolute;
+            top: 13%;
+            left: 60%;
+            transform: rotate(15deg); /* this will tilt it 15 degrees */
+        }
+        #Virginia {
+            width: 265px;
+            height: 130px;
+            position: absolute;
+            top: 20%;
+            left: 75%;
+            transform: rotate(-15deg); /* this will tilt it 15 degrees */
+        }
+        #Compass {
+            width: 180px;
+            height: 180px;
+            position: absolute;
+            top: 55%;
+            left: 60%;
+            transform: rotate(15deg); /* this will tilt it 15 degrees */
+        }
+        #Oar {
+            width: 140px;
+            height: 170px;
+            position: absolute;
+            top: 53%;
+            left: 81%;
+            transform: rotate(-60deg); /* this will tilt it 15 degrees */
+        }
+
+        /* Styles for name and student information */
+        .name_and_student {
+            position: absolute;
+            top: 4%;
+            left: 15%;
+            text-align: left;
+        }
+
+        .pageTitle {
+            font-family: 'Times New Roman';
+            font-size: 45px;
+            color: #185;
+            margin: 20px 0;
+        }
+
+        .indent {
+            text-indent: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="Cartoon" src="pictures/cartoon.png" alt="cartoon pic of me">
+    <img id="Cello" src="pictures/cello.png">
+    <img id="Oar" src="pictures/Oar.png">
+    <img id="Compass" src="pictures/compass.png">
+    <img id="Virginia" src="pictures/Virginia.png">
+    <div class="name_and_student">
+        <h1 class="pageTitle">Harry Beesley-Gilman: Student at Dartmouth College</h1>
+    </div>
+    
+    <!-- Chat Box -->
+    <div>
+        <textarea id="userMessage" placeholder="Type your message..."></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div id="response"></div>
+
+    <!-- JavaScript to handle the chat -->
+    <script>
+        function sendMessage() {
+            const userMessage = document.getElementById('userMessage').value;
+            fetch('/ask', {
+                method: 'POST',
+                body: new URLSearchParams({ 'user_message': userMessage }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').textContent = data.message;
+            });
+        }
+    </script>
+
+</body>
+</html>
