@@ -17,6 +17,7 @@
             background-color: #f2ebf7;
         }
 
+
         /* Styles for cartoon */
         #Cartoon {
             width: 380px;
@@ -52,15 +53,17 @@
         }
 
         #Record {
+            z-index: 1;
             width: 180px;
             height: 180px;
             position: absolute;
-            top: 25%;
+            top: 55%;
             left: 80%;
             transform: rotate(15deg); /* this will tilt it 15 degrees */
         }
 
         #Resume {
+            z-index: 1;
             width: 180px;
             height: 180px;
             position: absolute;
@@ -70,10 +73,11 @@
         }
 
         #Camera {
-            width: 240px;
-            height: 180px;
+            z-index: 2;
+            width: 200px;
+            height: 200px;
             position: absolute;
-            top: 55%;
+            top: 25%;
             left: 80%;
             transform: rotate(-15deg); 
         }
@@ -96,13 +100,13 @@
             text-align: left;
             font-size: 20px;
         }
-        #Record, #Resume, #Compass {
+        #Resume, #Record, #Compass, #Camera {
             transition: transform 0.3s, box-shadow 0.3s; 
             }
 
-        #Record:hover, #Resume:hover, #Compass:hover {
+        #Record:hover, #Resume:hover, #Compass:hover, #Camera:hover{
             transform: scale(1.1); 
-            box-circle: 0px 5px 15px rgba(0,0,0,0.3); 
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3); 
             }
 
 
@@ -118,22 +122,31 @@
         .indent {
             text-indent: 70px;
         }
+        a > img {
+        display: block;
+        }
+
+
     </style>
 </head>
 
 <body>
     <img id="Cartoon" src="pictures/cartoon.png" alt="cartoon pic of me">
+
     <img id="Cello" src="pictures/cello.png">
-    <a href="resume.html">
-        <img id="Resume" src="pictures/resume.png">
-    </a>
-    <a href="where.html">
-        <img id="Compass" src="pictures/compass.png">
+    <a href="pics.html">
+    <img id="Camera" src="pictures/camera.png">
     </a>
     <a href="albums.html">
-        <img id="Record" src="pictures/record.png">
+    <img id="Record" src="pictures/record.png">
     </a>
-    <img id="Camera" src="pictures/camera.png">
+    <a href="where.html">
+    <img id="Compass" src="pictures/compass.png">
+    </a>
+    <a href="resume.html">
+    <img id="Resume" src="pictures/resume.png">
+    </a>
+
     <img id="Oar" src="pictures/Oar.png">
     <img id="Virginia" src="pictures/Virginia.png">
     <h1 class="pageTitle">Harry Beesley-Gilman: Student at Dartmouth College</h1>
