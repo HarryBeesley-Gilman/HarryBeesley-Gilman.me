@@ -13,7 +13,7 @@ def index():
 def ask():
     user_message = request.form['user_message']
     response = "hi"
-            
+
     answer = response['choices'][0]['message']['content'].strip()
     return jsonify({'message': answer})
 
