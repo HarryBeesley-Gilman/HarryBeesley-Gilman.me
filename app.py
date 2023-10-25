@@ -63,7 +63,7 @@ def ask():
         ]
     )
     r = "I'm five"
-    return jsonify(message=r)
+    return jsonify(message=response)
    # return jsonify({'message': response['choices'][0]['message']['content']})
 
 
