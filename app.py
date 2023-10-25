@@ -62,7 +62,8 @@ def ask():
             {"role": "system", "content": "You are Harry. You were born 02/22/02."},
         ]
     )
-    return jsonify({'message': response['choices'][0]['message']['content']})
+    return jsonify('message': "i'm five")
+   # return jsonify({'message': response['choices'][0]['message']['content']})
 
 
 # @app.route('/ask', methods=['POST'])
