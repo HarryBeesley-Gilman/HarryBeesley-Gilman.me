@@ -6,6 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap">
+    <!-- Adding inline JavaScript to handle button click -->
+    <script>
+        async function sendMessage() {
+            const userMessage = document.getElementById('userMessage').value;
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `user_message=${encodeURIComponent(userMessage)}`
+                });
+                const data = await response.json();
+                document.getElementById('response').innerText = data.message;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
     <style>
         /* Styles for body and layout */
         body {
@@ -31,16 +50,16 @@
             width: 70px;
             height: 130px;
             position: absolute;
-            top: 27%;
-            left: 5%;
-            transform: rotate(15deg); /* this will tilt it 15 degrees */
+            top: 1%;
+            left: 10%;
+            transform: rotate(20deg); /* this will tilt it 15 degrees */
         }
         #Virginia {
             width: 130px;
             height: 65px;
             position: absolute;
-            top: 15%;
-            left: 25%;
+            top: 82%;
+            left: 5%;
             transform: rotate(-15deg); /* this will tilt it 15 degrees */
         }
         #Compass {
@@ -48,7 +67,7 @@
             height: 180px;
             position: absolute;
             top: 55%;
-            left: 60%;
+            left: 61%;
             transform: rotate(15deg); /* this will tilt it 15 degrees */
         }
 
@@ -59,7 +78,7 @@
             position: absolute;
             top: 55%;
             left: 80%;
-            transform: rotate(15deg); /* this will tilt it 15 degrees */
+            transform: rotate(-15deg); /* this will tilt it 15 degrees */
         }
 
         #Resume {
@@ -68,17 +87,17 @@
             height: 180px;
             position: absolute;
             top: 25%;
-            left: 60%;
+            left: 62%;
             transform: rotate(15deg); /* this will tilt it 15 degrees */
         }
 
         #Camera {
             z-index: 2;
-            width: 200px;
+            width: 250px;
             height: 200px;
             position: absolute;
-            top: 25%;
-            left: 80%;
+            top: 20%;
+            left: 77%;
             transform: rotate(-15deg); 
         }
 
@@ -87,8 +106,8 @@
             width: 70px;
             height: 80px;
             position: absolute;
-            top: 85%;
-            left: 25%;
+            top: 80%;
+            left: 35%;
             transform: rotate(-60deg); 
         }
 
@@ -96,7 +115,7 @@
         .Explanation {
             position: absolute;
             top: 80%;
-            left: 68%;
+            left: 65%;
             text-align: left;
             font-size: 20px;
         }
@@ -112,7 +131,7 @@
 
         .pageTitle {
             position: relative;
-            left: 25%;
+            left: 20%;
             top: 0%;
             font-size: 45px;
             color: #185;
@@ -122,10 +141,38 @@
         .indent {
             text-indent: 70px;
         }
-        a > img {
-        display: block;
+
+        .chatContainer {
+            position: absolute;
+            top: 25%;
+            left: 3%; 
+            height: 40%;
+            width: 28%; /* width of the chat container */
+            background-color: #fff; /* Background color for visibility */
+            padding: 10px; 
+            border-radius: 8px; 
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
         }
 
+        #userMessage {
+            width: 100%; 
+            height: 80%; 
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }       
+
+        button {
+            width: 100%; 
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
     </style>
 </head>
@@ -154,30 +201,15 @@
     <h2 class="Explanation">Click the 4 icons above to learn a bit about me.</h2>
     </div>
     
+<!-- HTML -->
+
     <!-- Chat Box -->
-    <div>
+    <div class="chatContainer">
         <textarea id="userMessage" placeholder="Type your message..."></textarea>
         <button onclick="sendMessage()">Send</button>
+        <div id="response"></div>
     </div>
-    <div id="response"></div>
 
-    <!-- JavaScript to handle the chat -->
-    <script>
-        function sendMessage() {
-            const userMessage = document.getElementById('userMessage').value;
-            fetch('/ask', {
-                method: 'POST',
-                body: new URLSearchParams({ 'user_message': userMessage }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('response').textContent = data.message;
-            });
-        }
-    </script>
 
 </body>
 </html>
