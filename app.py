@@ -1,12 +1,16 @@
 from flask import Flask, render_template, request, jsonify
 import openai
 import os
+from flask_cors import CORS
+
 ##this will only run locally in its current iteration
 
 app = Flask(__name__, template_folder='/Users/hbg/Desktop/DALI/HarryBeesley-Gilman.me')
 
 openai.api_key = os.environ.get('API_Key')
 
+
+CORS(app)  # allow all origins. 
 
 @app.route('/')
 def index():
@@ -34,4 +38,5 @@ Congressional Internr
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port = 7352)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 7352)))
+
