@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 ##this will only run locally in its current iteration
 
-app = Flask(__name__, template_folder='/Users/hbg/Desktop/DALI/HarryBeesley-Gilman.me')
+app = Flask(__name__, template_folder='/HarryBeesley-Gilman.me')
 
 openai.api_key = os.environ.get('API_Key')
 
