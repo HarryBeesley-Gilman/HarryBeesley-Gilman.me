@@ -4,7 +4,6 @@ import openai
 app = Flask(__name__, template_folder='DALI')
 
 # Make sure you set your API key here
-#openai.api_key = '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'
 
 @app.route('/')
 def index():
