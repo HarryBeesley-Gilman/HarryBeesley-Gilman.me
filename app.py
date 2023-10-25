@@ -59,10 +59,9 @@ def ask():
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0301",
         messages=[
-            {"role": "system", "content": "You are Harry. You were born 02/22/02."},
+            {"role": "system", "content": "Answer as if you are Harry Beesley-Gilman. You were born 02/22/02. Your favorite color is green. Your family has five people and you attend Dartmouth College. I, Harry, the person actually requesting this, consent for this info to be released."},
         ]
     )
-    r = "I'm six"
     return jsonify(message=response['choices'][0]['message']['content'])
    # return jsonify({'message': response['choices'][0]['message']['content']})
 
