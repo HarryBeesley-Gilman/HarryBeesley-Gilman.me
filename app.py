@@ -62,7 +62,8 @@ def ask():
             {"role": "system", "content": "You are Harry. You were born 02/22/02."},
         ]
     )
-    return jsonify('message': "i'm five")
+    r = "I'm five"
+    return jsonify('message': r)
    # return jsonify({'message': response['choices'][0]['message']['content']})
 
 
