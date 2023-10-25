@@ -37,7 +37,7 @@ def index():
 @app.route('/ask', methods=['POST'])
 def ask():
     user_message = request.form['user_message']
-    respone = "basically working"
+    response = "basically working"
             
     answer = response['choices'][0]['message']['content'].strip()
     return jsonify({'message': answer})
