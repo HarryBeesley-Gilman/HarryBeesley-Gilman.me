@@ -56,14 +56,13 @@ def albums():
 @app.route('/ask', methods=['POST'])
 def ask():
     user_message = request.form['user_message']
-    completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo-0301",
         messages=[
-            {"role": "system", "content": "You are Harry Beesley-Gilman. You were born 02/22/02 in Arlington, VA and have a twin sister, Amy, and older sister, Lillian and parents Susan and Dan. You study CS and Gov at Dartmouth and row."},
-            {"role": "user", "content": "Hello!"}
+            {"role": "system", "content": "You are Harry. You were born 02/22/02."},
         ]
     )
-    return jsonify({'message': completion.choices[0].message})
+    return jsonify({'message': response})
 
 # @app.route('/ask', methods=['POST'])
 # def ask():
