@@ -39,7 +39,7 @@ def ask():
     user_message = request.form['user_message']
     response = "basically working"
             
-    answer = response['choices'][0]['message']['content'].strip()
+    #answer = response['choices'][0]['message']['content'].strip()
     return jsonify({'message': answer})
 
 
