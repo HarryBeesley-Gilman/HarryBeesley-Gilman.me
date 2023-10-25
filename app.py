@@ -4,6 +4,7 @@ import openai
 
 app = Flask(__name__, template_folder='/Users/hbg/Desktop/DALI/HarryBeesley-Gilman.me')
 
+openai.api_key = API_Key
 
 
 @app.route('/')
