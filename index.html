@@ -52,7 +52,7 @@
             position: absolute;
             top: 1%;
             left: 10%;
-            transform: rotate(20deg); /* this will tilt it 15 degrees */
+            transform: rotate(20deg); 
         }
         #Virginia {
             width: 130px;
@@ -60,7 +60,7 @@
             position: absolute;
             top: 82%;
             left: 5%;
-            transform: rotate(-15deg); /* this will tilt it 15 degrees */
+            transform: rotate(-15deg);
         }
         #Compass {
             width: 180px;
@@ -68,7 +68,7 @@
             position: absolute;
             top: 55%;
             left: 61%;
-            transform: rotate(15deg); /* this will tilt it 15 degrees */
+            transform: rotate(15deg); 
         }
 
         #Record {
@@ -147,8 +147,8 @@
             top: 25%;
             left: 3%; 
             height: 40%;
-            width: 28%; /* width of the chat container */
-            background-color: #fff; /* Background color for visibility */
+            width: 28%; 
+            background-color: #fff; 
             padding: 10px; 
             border-radius: 8px; 
             box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
@@ -205,7 +205,7 @@
 
     <!-- Chat Box -->
     <div class="chatContainer">
-        <textarea id="userMessage" placeholder="Type your message..."></textarea>
+        <textarea id="userMessage" placeholder="This website is a work in progress. I hope to integrate the OpenAI API with this text box to allow the user to have to ask basic questions about Harry Beesley-Gilman -- the API will be automatically prompted with a good bit of information about him, and answer in his voice. I aleady have the API working on my computer, and responses are fitting, but won't have time to get this deployed on the web by the time my application for DALI is due."></textarea>
         <button onclick="sendMessage()">Send</button>
         <div id="response"></div>
     </div>
