@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap">
     <script>
         async function sendMessage() {
-            const userMessage = document.getElementById('userMessage').value;
+            const userMessage = document.getElementById('questionBox').value;  // <-- Change here
             try {
                 const response = await fetch('/ask', {
                     method: 'POST',
@@ -18,7 +18,7 @@
                     body: `user_message=${encodeURIComponent(userMessage)}`
                 });
                 const data = await response.json();
-                document.getElementById('response').innerText = data.message;
+                document.getElementById('answerBox').innerText = data.message;  // <-- Change here
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -221,7 +221,7 @@
     <div class="chatContainer">
         <textarea id="questionBox" placeholder="Type your question here..."></textarea>
         <div id="answerBox">Answer will be displayed here...</div>
-        <button>Ask Question</button>
+        <button onclick="sendMessage()">Ask Question</button>
     </div>
 
 

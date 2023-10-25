@@ -38,23 +38,38 @@ def albums():
     return render_template('albums.html')
 
 
-
-
+# @app.route('/ask', methods=['POST'])
+# def ask():
+#     user_message = request.form['user_message']
+#     response = openai.ChatCompletion.create(
+#                 model="gpt-3.5-turbo",
+#                 messages=[
+#                     {"role": "system", "content": """Answer the following questions as if you are Harry Beesley-Gilman. He was born february 22, 2002. He is a computer science and government major at Dartmouth college. He majors in computer science and government. He currently studies abroad at the LSE in London. He has interned at the Senate, the ODNI and as a backpacking guide and Philmont Scout Ranch. His resume includes: Office of Senator Tim Kaine, Washington, D.C.
+# he was born Feb 22, 2002 in Arlington, VA. He is 6 foot 1 inch tall. He has a twin sister, an older sister, and two parents susan and Dan."""},
+#                     {"role": "user", "content": user_message}
+#                 ],
+#                 temperature = .5
+#             )
+            
+#     answer = response['choices'][0]['message']['content'].strip()
+#     return jsonify({'message': answer})
 @app.route('/ask', methods=['POST'])
 def ask():
     user_message = request.form['user_message']
-    response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": """Answer the following questions as if you are Harry Beesley-Gilman. He was born february 22, 2002. He is a computer science and government major at Dartmouth college. He majors in computer science and government. He currently studies abroad at the LSE in London. He has interned at the Senate, the ODNI and as a backpacking guide and Philmont Scout Ranch. His resume includes: Office of Senator Tim Kaine, Washington, D.C.
-he was born Feb 22, 2002 in Arlington, VA. He is 6 foot 1 inch tall. He has a twin sister, an older sister, and two parents susan and Dan."""},
-                    {"role": "user", "content": user_message}
-                ],
-                temperature = .5
-            )
-            
-    answer = response['choices'][0]['message']['content'].strip()
-    return jsonify({'message': answer})
+    completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are Harry Beesley-Gilman. You were born 02/22/02 in Arlington, VA and have a twin sister, Amy, and older sister, Lillian and parents Susan and Dan. You study CS and Gov at Dartmouth and row."},
+            {"role": "user", "content": "Hello!"}
+        ]
+    )
+    return jsonify({'message': completion.choices[0].message})
+
+# @app.route('/ask', methods=['POST'])
+# def ask():
+#     user_message = request.form['user_message']
+
+#     return jsonify({'message': "yes its working"})
 
 
 
