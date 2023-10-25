@@ -21,19 +21,19 @@ CORS(app)  # allow all origins.
 def index():
     return render_template('index.html')
 
-@app.route('/pics')
+@app.route('/pics.html')
 def pics():
     return render_template('pics.html')
 
-@app.route('/resume')
+@app.route('/resume.html')
 def resume():
     return render_template('resume.html')
 
-@app.route('/where')
+@app.route('/where.html')
 def where():
     return render_template('where.html')
 
-@app.route('/albums')
+@app.route('/albums.html')
 def albums():
     return render_template('albums.html')
 
