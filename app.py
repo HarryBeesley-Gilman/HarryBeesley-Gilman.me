@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 import openai
+##this will only run locally in its current iteration
 
 app = Flask(__name__, template_folder='/Users/hbg/Desktop/DALI/HarryBeesley-Gilman.me')
 
-# Make sure you set your API key here
-openai.api_key = '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'
+
 
 @app.route('/')
 def index():
