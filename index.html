@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harry Beesley-Gilman</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap">
-    <!-- Adding inline JavaScript to handle button click -->
     <script>
         async function sendMessage() {
             const userMessage = document.getElementById('userMessage').value;
@@ -51,16 +50,16 @@
             height: 130px;
             position: absolute;
             top: 1%;
-            left: 10%;
+            left: 3%;
             transform: rotate(20deg); 
         }
         #Virginia {
             width: 130px;
             height: 65px;
             position: absolute;
-            top: 82%;
-            left: 5%;
-            transform: rotate(-15deg);
+            top: 8%;
+            left: 13%;
+            transform: rotate(0deg);
         }
         #Compass {
             width: 180px;
@@ -104,11 +103,11 @@
 
         #Oar {
             width: 70px;
-            height: 80px;
+            height: 90px;
             position: absolute;
-            top: 80%;
-            left: 35%;
-            transform: rotate(-60deg); 
+            top: 9%;
+            left: 29%;
+            transform: rotate(-90deg); 
         }
 
 
@@ -143,42 +142,57 @@
         }
 
         .chatContainer {
+            font-family: 'Gochi Hand', cursive;
             position: absolute;
             top: 25%;
             left: 3%; 
-            height: 40%;
+            height: 65%;
             width: 28%; 
             background-color: #fff; 
             padding: 10px; 
-            border-radius: 8px; 
-            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            border-color: #118855;
+            border-radius: 1px; 
+            box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+            background-color: #118855;
+            color: #185;
+            display: flex;
+            flex-direction: column; 
         }
 
-        #userMessage {
-            width: 100%; 
-            height: 80%; 
+        #questionBox, #answerBox {
+            font-family: 'Gochi Hand', cursive;
+            flex: 1;  /
             padding: 8px;
             box-sizing: border-box;
+            border-color: #185;
             border-radius: 4px;
             border: 1px solid #ccc;
+            color: #185;
             margin-bottom: 10px;
-        }       
-
-        button {
-            width: 100%; 
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            background-color: #f2ebf7;
+            overflow-y: auto; 
         }
+
+        #answerBox {
+            background-color: #e9e9e9; 
+    }
+
+    button {
+    font-family: 'Gochi Hand', cursive;
+    width: 100%; 
+    padding: 10px;
+    background-color: #FAF7D6;
+    color: #185;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
     </style>
 </head>
 
 <body>
-    <img id="Cartoon" src="/pictures/cartoon.png" alt="cartoon pic of me">
+    <img id="Cartoon" src="./pictures/cartoon.png" alt="cartoon pic of me">
 
     <img id="Cello" src="./pictures/cello.png">
     <a href="pics.html">
@@ -194,8 +208,8 @@
     <img id="Resume" src="./pictures/resume.png">
     </a>
 
-    <img id="Oar" src="/pictures/Oar.png">
-    <img id="Virginia" src="/pictures/Virginia.png">
+    <img id="Oar" src="./pictures/Oar.png">
+    <img id="Virginia" src="./pictures/Virginia.png">
     <h1 class="pageTitle">Harry Beesley-Gilman: Student at Dartmouth College</h1>
     </div>
     <h2 class="Explanation">Click the 4 icons above to learn a bit about me.</h2>
@@ -205,9 +219,9 @@
 
     <!-- Chat Box -->
     <div class="chatContainer">
-        <textarea id="userMessage" placeholder="This website is a work in progress. I hope to integrate the OpenAI API with this text box to allow the user to have to ask basic questions about Harry Beesley-Gilman -- the API will be automatically prompted with a good bit of information about him, and answer in his voice. I aleady have the API working on my computer, and responses are fitting, but won't have time to get this deployed on the web by the time my application for DALI is due."></textarea>
-        <button onclick="sendMessage()">Send</button>
-        <div id="response"></div>
+        <textarea id="questionBox" placeholder="Type your question here..."></textarea>
+        <div id="answerBox">Answer will be displayed here...</div>
+        <button>Ask Question</button>
     </div>
 
 
