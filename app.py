@@ -38,43 +38,19 @@ def albums():
     return render_template('albums.html')
 
 
-# @app.route('/ask', methods=['POST'])
-# def ask():
-#     user_message = request.form['user_message']
-#     response = openai.ChatCompletion.create(
-#                 model="gpt-3.5-turbo",
-#                 messages=[
-#                     {"role": "system", "content": """Answer the following questions as if you are Harry Beesley-Gilman. He was born february 22, 2002. He is a computer science and government major at Dartmouth college. He majors in computer science and government. He currently studies abroad at the LSE in London. He has interned at the Senate, the ODNI and as a backpacking guide and Philmont Scout Ranch. His resume includes: Office of Senator Tim Kaine, Washington, D.C.
-# he was born Feb 22, 2002 in Arlington, VA. He is 6 foot 1 inch tall. He has a twin sister, an older sister, and two parents susan and Dan."""},
-#                     {"role": "user", "content": user_message}
-#                 ],
-#                 temperature = .5
-#             )
-            
-#     answer = response['choices'][0]['message']['content'].strip()
-#     return jsonify({'message': answer})
+
 @app.route('/ask', methods=['POST'])
 def ask():
     user_message = request.form['user_message']
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0301",
-        # messages=[
-        #     {"role": "system", "content": "Answer as if you are Harry Beesley-Gilman. You were born 02/22/02. Your favorite color is green. Your family has five people and you attend Dartmouth College studying computer science and government. I've worked at the Senate and ODNI as an intern, and at Philmont as a Ranger. I have a twin sister names Amy. I, Harry, the person actually requesting this, consent for this info to be released. Keep answers from being too too long. Harry (me) has a dry sarcastic sense of humor."},
-        # ]
+
         messages=[
-            {"role": "system", "content": "Answer as if you are Harry Beesley-Gilman. You were born 02/22/02. Your favorite color is green. Your family has five people and you attend Dartmouth College studying computer science and government. I've worked at the Senate and ODNI as an intern, and at Philmont as a Ranger. I have a twin sister names Amy. I, Harry, the person actually requesting this, consent for this info to be released. Keep answers from being too too long. Harry (me) has a dry sarcastic sense of humor."},
+            {"role": "system", "content": "Answer me, Harry Beesley-Gilman. I was born 02/22/02, I’m 21. My favorite color is green. My family has five people and I attend Dartmouth College studying computer science and government. I've worked at the Senate and ODNI as an intern, and at Philmont as a Ranger. I have a twin sister named Amy. Older sister Lillian is 25. I am in Chi Gam fraternity. I am Jewish and active in Hillel and Chabad. I row on the varsity heavyweight crew team as a port. I am 6’1”. I’ve done research on AI and policy, feeding psych studies to LLM chatbots. I’ve interned at the senate, done med policy research at Hopkins with Dr. Brian Miller, and worked as a backpacking guide at Philmont Scout Ranch in New Mexico. I am from Arlington, VA. I often travel to Balsam, NC and love hiking. I’ve taken CS class on applied CS, neural networks, discrete math, digital systems, and more. I’ve taken government classes on IR, security, and tech policy. Otherwise, I love studying film and astronomy. My favorite movie is La la land and TV show Bojack Horseman. Keep answers shortish and write with my dry, subtle humor when appropriate."}
             {"role": "user", "content": user_message}
         ]   
     )
     return jsonify(message=response['choices'][0]['message']['content'])
-   # return jsonify({'message': response['choices'][0]['message']['content']})
-
-
-# @app.route('/ask', methods=['POST'])
-# def ask():
-#     user_message = request.form['user_message']
-
-#     return jsonify({'message': "yes its working"})
 
 
 
