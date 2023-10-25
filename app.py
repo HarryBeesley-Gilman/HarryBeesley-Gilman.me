@@ -40,7 +40,7 @@ def ask():
     response = "basically working"
             
     #answer = response['choices'][0]['message']['content'].strip()
-    return jsonify({'message': answer})
+    return jsonify({'message': response})
 
 
 
