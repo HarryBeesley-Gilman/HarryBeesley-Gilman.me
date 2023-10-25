@@ -5,7 +5,12 @@ from flask_cors import CORS
 
 ##this will only run locally in its current iteration
 
-app = Flask(__name__, template_folder='./')
+
+app = Flask(__name__,
+            static_url_path='', 
+            static_folder='/pictures',
+            template_folder='./')
+
 
 openai.api_key = os.environ.get('APIKEY')
 
@@ -15,6 +20,25 @@ CORS(app)  # allow all origins.
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/')
+def pics():
+    return render_template('pics.html')
+
+@app.route('/')
+def resume():
+    return render_template('resume.html')
+
+@app.route('/')
+def where():
+    return render_template('where.html')
+
+@app.route('/')
+def albums():
+    return render_template('albums.html')
+
+
+
 
 @app.route('/ask', methods=['POST'])
 def ask():
