@@ -7,7 +7,7 @@ from flask_cors import CORS
 
 app = Flask(__name__, template_folder='./')
 
-openai.api_key = os.environ.get('API_Key')
+openai.api_key = os.environ.get('APIKEY')
 
 
 CORS(app)  # allow all origins. 
